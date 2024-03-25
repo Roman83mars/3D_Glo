@@ -7,11 +7,5 @@ export default defineConfig({
             targets: ['defaults', 'not IE 11'],
         }),
     ],
+    base: "./",
 })
-module.exports = {
-    root: './',
-    build: {
-        outDir: 'dist',
-    },
-    publicDir: 'assets'
-}
