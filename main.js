@@ -1,3 +1,5 @@
 import { timer } from './src/modules/timer.js';
+import { menu } from './src/modules/menu.js';
 
-timer("26 march 2024")
+timer("27 march 2024")
+menu()
