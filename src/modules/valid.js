@@ -6,28 +6,27 @@ export const valid = () => {
     const formEmail = document.querySelectorAll('.form-email')
     const formPhone = document.querySelectorAll('.form-phone')
 
-    calcSquare.addEventListener('input', () => {
-        calcSquare.value = calcSquare.value.replace(/\D+/, '')
-    })
-    calcCount.addEventListener('input', () => {
-        calcCount.value = calcCount.value.replace(/\D+/, '')
-    })
-    calcDay.addEventListener('input', () => {
-        calcDay.value = calcDay.value.replace(/\D+/, '')
-    })
+    const addInputValidationHandler = (element) => {
+        element.addEventListener('input', () => {
+            element.value = element.value.replace(/\D+/g, '')
+        })
+    }
+    addInputValidationHandler(calcSquare)
+    addInputValidationHandler(calcCount)
+    addInputValidationHandler(calcDay)
 
     formMessage.addEventListener('input', () => {
-        formMessage.value = formMessage.value.replace(/[^\-\sа-яА-Я]+/, '')
+        formMessage.value = formMessage.value.replace(/[^\-\sа-яА-Я]+/g, '')
     })
 
     formEmail.forEach((input) => {
         input.addEventListener('input', () => {
-            input.value = input.value.replace(/[^\@\-\.\_\!\*\'\~\w]+/, '')
+            input.value = input.value.replace(/[^\@\-\.\_\!\*\'\~\w]+/g, '')
         })
     })
     formPhone.forEach((input) => {
         input.addEventListener('input', () => {
-            input.value = input.value.replace(/[^\(\)\-\d]+/, '')
+            input.value = input.value.replace(/[^\(\)\-\d]+/g, '')
         })
     })
 }

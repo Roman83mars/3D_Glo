@@ -1,3 +1,4 @@
+import { animate } from './helpers'
 export const modal = () => {
     const modal = document.querySelector('.popup')
     const buttons = document.querySelectorAll('.popup-btn')
@@ -8,21 +9,16 @@ export const modal = () => {
         btn.addEventListener('click', () => {
             modal.style.display = 'block'
             if (width > 768) {
-                let count = 0
-                let idInterval
-                const modalAnimate = () => {
-                    count++
-                    idInterval = requestAnimationFrame(modalAnimate)
-
-                    if (count / 100 <= 1) {
-                        modal.style.opacity = count / 100
-                        modalContent.style.left = (count - 62) + '%'
-                    } else {
-                        cancelAnimationFrame(modalAnimate)
+                animate({
+                    duration: 1000,
+                    timing(timeFraction) {
+                        return timeFraction;
+                    },
+                    draw(progress) {
+                        modal.style.opacity = progress
+                        modalContent.style.left = (progress * 100 - 62) + '%'
                     }
-
-                }
-                modalAnimate()
+                });
             }
         })
     })

@@ -6,7 +6,7 @@ import { tabs } from './src/modules/tabs.js';
 import { slider } from './src/modules/slider.js';
 import { calc } from './src/modules/calc.js';
 
-timer("2 april 2024")
+timer("4 april 2024")
 menu()
 modal()
 valid()
